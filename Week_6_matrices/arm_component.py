@@ -104,13 +104,6 @@ class ArmComponent:
         """ Return the pose matrix"""
         # YOUR CODE HERE
         # TODO STEP 2: Change this to return your pose matrix
-        theta = self.angle
-        cos_t = np.cos(theta)
-        sin_t = np.sin(theta)
-        pose_matrix = np.array([
-            [cos_t, -sin_t, 0],
-            [sin_t,  cos_t, 0],
-            [0,      0,     1]])
         return self.pose_matrix
     def set_to_base_shape(self, base_width=1.0, base_height=0.5):
         """ Position and orient the base of the arm (the wedge-shape at the bottom)
@@ -127,8 +120,8 @@ class ArmComponent:
         self.base_width = base_width
         self.base_height = base_height
 
-        scale_matrix = mt.make_scale_matrix(base_width / 2, base_height / 2)
-        translate_matrix = mt.make_translation_matrix(0, base_height / 2)
+        scale_matrix = mt.make_scale_matrix(base_height / 2, base_width / 2)
+        translate_matrix = mt.make_translation_matrix(0, base_width / 2)
         
         self.shape_matrix = translate_matrix @ scale_matrix
 
@@ -185,7 +178,7 @@ class ArmComponent:
         self.finger_width = finger_width
         self.b_is_top = b_is_top
         
-        scale_matrix = scale_matrix = mt.make_scale_matrix(finger_width / 2, finger_length / 2) # Replace with real code
+        scale_matrix = mt.make_scale_matrix(finger_width / 2, finger_length / 2) # Replace with real code
 
         y_translation = palm_width / 2 if b_is_top else -palm_width / 2
 
