@@ -120,8 +120,8 @@ class ArmComponent:
         self.base_width = base_width
         self.base_height = base_height
 
-        scale_matrix = mt.make_scale_matrix(base_height / 2, base_width / 2)
-        translate_matrix = mt.make_translation_matrix(0, base_width / 2)
+        scale_matrix = mt.make_scale_matrix( base_width/ 2, base_height / 2)
+        translate_matrix = mt.make_translation_matrix(0, base_height / 2)
         
         self.shape_matrix = translate_matrix @ scale_matrix
 
