@@ -85,7 +85,7 @@ class Skier:
         @param ground - an instance of Ground"""
 
         # YOUR CODE HERE
-            slope_theta = ground.slope(*self.current_state[0, :])   # slope (theta)
+        slope_theta = ground.slope(*self.current_state[0, :])   # slope (theta)
 
     def is_crash(self, ground):
         """ Determine if a crash happened between last time step and this
